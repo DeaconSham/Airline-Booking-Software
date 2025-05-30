@@ -1,5 +1,5 @@
 ## Airline-Booking-Software
-This is a summative project for ICS4U, demonstrating an airline booking software.
+This is a summative project for ICS4U, demonstrating an airline booking software. Note that the maximum number of flights and seats per flight can be interchangeable in the 'Constants.h' file.
 
 ## User Guide
 
