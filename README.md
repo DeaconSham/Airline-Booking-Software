@@ -3,6 +3,8 @@ This is a summative project for ICS4U, demonstrating an airline booking software
 
 ## User Guide
 
+# Main Menu Actions
+
 1.  **Add New Flight:**
     *   Enter `1`.
     *   Type a unique **Flight Number** and press `Enter`.
