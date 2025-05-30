@@ -1,17 +1,7 @@
 ## Airline-Booking-Software
-This is a summative project for ICS4U, demonstrating an airline booking software. Note that the maximum number of flights and seats per flight can be interchangeable in the 'Constants.h' file.
+This is a summative project for ICS4U, demonstrating an airline booking software. Note that the maximum number of flights and seats per flight can be interchangeable in the `Constants.h` file.
 
 ## User Guide
-
-# Starting Up
-1.  Run the `airplane` (or similarly named) program from your terminal.
-2.  The **Main Menu** will appear.
-# Navigation
-*   **Menus:** Type the number of your choice and press `Enter`.
-*   **Prompts:** Type the requested information and press `Enter`.
-*   **Continue:** After information is shown, press `Enter` to go back to the menu.
-
-# Main Menu Actions
 
 1.  **Add New Flight:**
     *   Enter `1`.
@@ -42,7 +32,7 @@ This is a summative project for ICS4U, demonstrating an airline booking software
 
 2.  **Book a Seat:**
     *   Enter `2`. Seating chart displays.
-    *   Enter the desired **Seat Number** (1-10).
+    *   Enter the desired **Seat Number**.
     *   If available, enter customer's **Name**, **Address**, and **Phone**.
     *   Press `Enter` to return.
 
