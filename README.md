@@ -15,13 +15,13 @@ This is a summative project for ICS4U, demonstrating an airline booking software
 
 1.  **Add New Flight:**
     *   Enter `1`.
-    *   Type a unique **Flight Number** (e.g., `FBN101`) and press `Enter`.
+    *   Type a unique **Flight Number** and press `Enter`.
     *   Press `Enter` to return.
 
 2.  **Select Flight to Manage:**
     *   Enter `2`.
     *   Available flights will be listed.
-    *   Type the **Flight Number** to manage (e.g., `FBN101`) or `0` to go back, then press `Enter`.
+    *   Type the **Flight Number** to manage or `0` to go back, then press `Enter`.
     *   This takes you to the **Flight Management Menu**.
 
 3.  **List All Flights:**
