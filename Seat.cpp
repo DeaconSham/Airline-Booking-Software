@@ -29,13 +29,11 @@ Customer* Seat::getCustomer() const {
 }
 
 bool Seat::reserve(Customer* cust) {
-    if (!isReserved && cust != nullptr) { // to check for cust != nullptr
+    if (!isReserved && cust != nullptr) {
         customer = cust;
         isReserved = true;
         return true;
     }
-    // If cust is nullptr or seat is reserved, don't take seat
-    // Flight::bookSeat should delete cust if it's not used
     return false;
 }
 
