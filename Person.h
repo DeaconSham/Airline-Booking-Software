@@ -23,4 +23,4 @@ class Person {
         virtual void display() const; //Virtual method to display person's information; can be overridden by derived classes.
 };
 
-#endif //PERSON_H
+#endif
