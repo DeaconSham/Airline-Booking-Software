@@ -26,10 +26,15 @@ bool Flight::isSeatAvailable(int seatNum) const {
 }
 
 int Flight::countAvailableRecursiveHelper(int index) const {
+    int count;
     if (index < 0) {
         return 0;
     }
-    int count = seats[index].getIsReserved() ? 0 : 1;
+    if (seats[index].getIsReserved()) {
+        count = 0;
+    } else {
+        count = 1;
+    }
     return count + countAvailableRecursiveHelper(index - 1);
 }
 
