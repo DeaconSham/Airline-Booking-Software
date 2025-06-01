@@ -12,7 +12,7 @@ void clearScreen() {
 #elif defined(__APPLE__) //Check if compiling macOS
     std::system("clear"); //macOS command to clear screen
 #else
-    // Fallback for unknown systems: print many newlines to simulate a clear.
+    // If unknown systems: print many newlines to simulate a clear.
     for (int i = 0; i < 50; ++i)  {
         std::cout << std::endl;
     }
