@@ -5,7 +5,7 @@
 
 Flight::Flight() : flightNumber(""), numReservedSeats(0) {
     for (int i = 0; i < MAX_SEATS_PER_FLIGHT; i++) {
-        seats[i].initialize(i + 1); //Seats numbers
+        seats[i].initialize(i + 1);
     }
 }
 
@@ -14,7 +14,6 @@ Flight::Flight(const std::string& fn) : flightNumber(fn), numReservedSeats(0) {
         seats[i].initialize(i + 1);
     }
 }
-//Destructor for Flight is defined and will call destructors for Seat members
 
 std::string Flight::getFlightNumber() const {return flightNumber;}
 int Flight::getNumReservedSeats() const {return numReservedSeats;}
@@ -62,16 +61,16 @@ void Flight::displaySeatingChart() const {
 }
 
 bool Flight::bookSeat(int seatNum, Customer* cust) {
-    if (!cust) { // To prevent booking with a null customer
+    if (!cust) {
         std::cout << "Error: Cannot book seat with null customer information." << std::endl;
-        return false; //cust is not deleted here, caller should manage if it was newed
+        return false;
     }
     if (seatNum < 1 || seatNum > MAX_SEATS_PER_FLIGHT) {
         std::cout << "Error: Invalid seat number." << std::endl;
-        delete cust; //Clean up customer object as it will not be used here
+        delete cust;
         return false;
     }
-    if (seats[seatNum - 1].reserve(cust)) { //Seat::reserve now takes ownership
+    if (seats[seatNum - 1].reserve(cust)) {
         numReservedSeats++;
         std::cout << "Seat " << seatNum << " booked successfully for " << cust->getName() << "." << std::endl;
         return true;
@@ -88,13 +87,12 @@ bool Flight::cancelReservationBySeat(int seatNum) {
         return false;
     }
     if (seats[seatNum - 1].getIsReserved()) {
-        //Get customer name before cancelling for the message
         std::string custName = "Unknown (Error)";
         if (seats[seatNum - 1].getCustomer()) {
             custName = seats[seatNum - 1].getCustomer()->getName();
         }
         std::cout << "Cancelling reservation for seat " << seatNum << " held by " << custName << "." << std::endl;
-        if (seats[seatNum - 1].cancel()) { //Seat::cancel deletes the Customer object
+        if (seats[seatNum - 1].cancel()) {
             numReservedSeats--;
             std::cout << "Reservation for seat " << seatNum << " cancelled successfully." << std::endl;
             return true;
@@ -114,7 +112,7 @@ int Flight::findSeatByCustomerName(const std::string& custName) const {
             return seats[i].getSeatNumber();
         }
     }
-    return -1; //Not found otherwise
+    return -1;
 }
 
 void Flight::printPassengerManifest() const {
@@ -139,7 +137,6 @@ void Flight::printPassengerManifestSortedByName() const {
         std::cout << "No passengers on this flight." << std::endl;
         return;
     }
-    //Create an array of pointers to Customer objects who are passengers
     Customer* passengerPointers[MAX_SEATS_PER_FLIGHT];
     int passengerCount = 0;
     for (int i = 0; i < MAX_SEATS_PER_FLIGHT; i++) {
@@ -157,9 +154,7 @@ void Flight::printPassengerManifestSortedByName() const {
             }
         }
     }
-    //Print list
     for (int i = 0; i < passengerCount; i++) {
-        //Find the seat for this customer
         int seatNum = -1;
         for (int s = 0; s < MAX_SEATS_PER_FLIGHT; s++) {
             if (seats[s].getCustomer() == passengerPointers[i]) {
