@@ -21,4 +21,4 @@ class Airline {
         void processFlightCancellation(Flight* flight); //Handles airline-side cancellation of a flight (e.g., prints contacts).
 };
 
-#endif //AIRLINE_H
+#endif
