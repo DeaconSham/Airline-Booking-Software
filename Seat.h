@@ -21,4 +21,4 @@ class Seat {
         void displayStatus() const; //Displays the current status of the seat.
 };
 
-#endif //SEAT_H
+#endif
