@@ -30,4 +30,4 @@ class Flight {
         int getAvailableSeatCountRecursive() const; //Returns count of available seats (using recursion).
 };
 
-#endif //FLIGHT_H
+#endif
