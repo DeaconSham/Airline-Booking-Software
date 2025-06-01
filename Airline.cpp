@@ -4,7 +4,7 @@
 
 Airline::Airline() : numActualFlights(0) {
     for (int i = 0; i < MAX_FLIGHTS; i++) {
-        flightSlotUsed[i] = false; //Flight objects in the 'flights' array are default-constructed here
+        flightSlotUsed[i] = false;
     }
 }
 
@@ -19,7 +19,6 @@ void Airline::addFlight() {
     }
     std::string fn;
     std::cout << "Enter new flight number: ";
-    //Clear buffer before taking flight number if previous input was numerical
     std::getline(std::cin, fn);
     if (fn.empty()) {
         std::cout << "Flight number cannot be empty. Please try again." << std::endl;
@@ -32,7 +31,6 @@ void Airline::addFlight() {
             return;
         }
     }
-    //Find the first available slot
     int slot = -1;
     for (int i = 0; i < MAX_FLIGHTS; i++) {
         if (!flightSlotUsed[i]) {
@@ -40,13 +38,12 @@ void Airline::addFlight() {
             break;
         }
     }
-    //This should always find a slot if numActualFlights < MAX_FLIGHTS
     if (slot != -1) {
-        flights[slot] = Flight(fn); //Asign new Flight object to the slot
+        flights[slot] = Flight(fn);
         flightSlotUsed[slot] = true;
         numActualFlights++;
         std::cout << "Flight " << fn << " added successfully." << std::endl;
-    } else { //non ideal case
+    } else {
         std::cout << "Error: system inconsistency. No availbale slot to add flight." << std::endl;
     }
 }
@@ -54,10 +51,10 @@ void Airline::addFlight() {
 Flight* Airline::findFlight(const std::string& fn) {
     for (int i = 0; i < MAX_FLIGHTS; i++) {
         if (flightSlotUsed[i] && flights[i].getFlightNumber() == fn) {
-            return &flights[i]; //Return pointer to the flight
+            return &flights[i];
         }
     }
-    return nullptr; //Not found
+    return nullptr;
 }
 
 void Airline::listFlights() const {
@@ -73,11 +70,11 @@ void Airline::listFlights() const {
             std::cout << "- " << flights[i].getFlightNumber() << " (" << flights[i].getNumReservedSeats() << "/" << MAX_SEATS_PER_FLIGHT << " seats reserved)" << " (" << flights[i].getAvailableSeatCountRecursive() << " available)" << std::endl;
         }
     }
-    if (!foundActiveFlight && numActualFlights > 0) { //non-ideal case
+    if (!foundActiveFlight && numActualFlights > 0) {
         std::cout << "System inconsistency: numActualFlights > 0 but no flights listed." << std::endl;
     }
-    else if (!foundActiveFlight) { //Should be caused by numActualFlights == 0, non-ideal case
-        std::cout << "No flights currenclty in the system." << std::endl;
+    else if (!foundActiveFlight) {
+        std::cout << "No flights currently in the system." << std::endl;
     }
 }
 
@@ -90,13 +87,11 @@ void Airline::processFlightCancellation(Flight* flight) {
     std::cout << "The following passengers need to be contacted:" << std::endl;
     flight->printContactListForCancellation();
     char confirm;
-    std::cout << "Do you want to clear all reservation for this flight now? [y/n]";
+    std::cout << "Do you want to clear all reservations for this flight now? [y/n]";
     std::cin >> confirm;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     if (confirm == 'y' || confirm == 'Y') {
         flight->clearAllReservations();
-        //This does not remove the flight object itself from the Airline's array
-        //While it makes all its seats available
     } else {
         std::cout << "Reservations for flight " << flight->getFlightNumber() << " have not been cleared." << std::endl;
     }
