@@ -13,7 +13,7 @@ void clearScreen() {
     std::system("clear"); //macOS command to clear screen
 #else
     // If unknown systems: print many newlines to simulate a clear.
-    for (int i = 0; i < 50; ++i)  {
+    for (int i = 0; i < 50; i++)  {
         std::cout << std::endl;
     }
 #endif
