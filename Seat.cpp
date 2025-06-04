@@ -3,11 +3,7 @@
 #include <iostream>
 #include <iomanip>
 
-Seat::Seat() {
-    seatNumber = 0;
-    isReserved = false;
-    customer = nullptr;
-}
+Seat::Seat() : seatNumber(0), isReserved(false), customer(nullptr) {}
 
 Seat::~Seat() {
     delete customer;
