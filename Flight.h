@@ -8,7 +8,7 @@
 //Manages information and operations for a single flight, including its seats and passengers.
 class Flight {
     private:
-        std::string flightNumber; //Unique identifier for the flight.
+        std::string flightNumber; //Unique number for the flight.
         Seat seats[MAX_SEATS_PER_FLIGHT]; //Array of Seat objects for this flight.
         int numReservedSeats; //Current count of reserved seats.
         int countAvailableRecursiveHelper(int index) const; //Recursive helper to count available seats.
