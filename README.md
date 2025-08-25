@@ -22,15 +22,11 @@ You will need a C++ compiler to build the project. The g++ compiler is a common 
 
 ### Installation & Running
 
-1.  **Navigate to the project directory:**
-    ```sh
-    cd Airline-Booking-Software
-    ```
-2.  **Compile the source code:**
+1.  **Compile the source code:**
     ```sh
     g++ -o airline_booking Main.cpp Airline.cpp Flight.cpp Customer.cpp Person.cpp Seat.cpp
     ```
-3.  **Run the executable:**
+2.  **Run the executable:**
     ```sh
     ./airline_booking
     ```
