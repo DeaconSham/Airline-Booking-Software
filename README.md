@@ -1,65 +1,71 @@
-# Airline-Booking-Software
-Program demonstrates an airline booking software. Note that the maximum number of flights and seats per flight can be interchangeable in the `Constants.h` file.
+# Airline Booking Software
 
-## User Guide
+This is a straightforward airline booking software, as it's a console-based application written in C++ that allows users to manage flights and passenger reservations.
 
-# Main Menu Actions
+## Features
 
-1.  **Add New Flight:**
-    *   Enter `1`.
-    *   Type a unique **Flight Number** and press `Enter`.
-    *   Press `Enter` to return.
+*   **Flight Management**: Add new flights and list all available flights with their occupancy.
+*   **Seat Booking**: Book available seats on a flight for a customer by providing their name, address, and phone number.
+*   **Reservation Cancellation**: Cancel a reservation by seat number or customer name.
+*   **Passenger Manifests**: Print a list of passengers on a flight, sorted either by seat number or alphabetically by name.
+*   **Seating Chart**: Display a visual representation of the seating chart for a flight, showing which seats are available and which are reserved.
+*   **Full Flight Cancellation**: Cancel an entire flight, with an option to clear all reservations.
+*   **Customizable Constants**: The maximum number of flights and seats per flight can be easily changed in the `Constants.h` file.
 
-2.  **Select Flight to Manage:**
-    *   Enter `2`.
-    *   Available flights will be listed.
-    *   Type the **Flight Number** to manage or `0` to go back, then press `Enter`.
-    *   This takes you to the **Flight Management Menu**.
+## Getting Started
 
-3.  **List All Flights:**
-    *   Enter `3`.
-    *   A summary of all flights and their occupancy is shown.
-    *   Press `Enter` to return.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-0.  **Exit Program:**
-    *   Enter `0` to close the application.
+### Prerequisites
 
-# Flight Management Menu Actions
-(Accessed after selecting a flight from the Main Menu)
+You will need a C++ compiler to build the project. The g++ compiler is a common choice.
 
-1.  **Display Seating Chart:**
-    *   Enter `1`.
-    *   View the 10 seats: `[X]` = Reserved, `[#]` = Available Seat #.
-    *   Press `Enter` to return.
+### Installation & Running
 
-2.  **Book a Seat:**
-    *   Enter `2`. Seating chart displays.
-    *   Enter the desired **Seat Number**.
-    *   If available, enter customer's **Name**, **Address**, and **Phone**.
-    *   Press `Enter` to return.
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/DeaconSham/Airline-Booking-Software.git
+    ```
+2.  **Navigate to the project directory:**
+    ```sh
+    cd Airline-Booking-Software
+    ```
+3.  **Compile the source code:**
+    ```sh
+    g++ -o airline_booking Main.cpp Airline.cpp Flight.cpp Customer.cpp Person.cpp Seat.cpp
+    ```
+4.  **Run the executable:**
+    ```sh
+    ./airline_booking
+    ```
 
-3.  **Cancel a Reservation:**
-    *   Enter `3`.
-    *   Choose to cancel by `1` (Seat Number) or `2` (Customer Name).
-    *   Enter the requested seat number or customer name.
-    *   Press `Enter` to return.
+## How to Use
 
-4.  **Print Passenger Manifest (by Seat):**
-    *   Enter `4`.
-    *   Lists passengers by seat number with contact details.
-    *   Press `Enter` to return.
+### Main Menu
 
-5.  **Print Passenger Manifest (by Name):**
-    *   Enter `5`.
-    *   Lists passengers alphabetically by name with seat and contact details.
-    *   Press `Enter` to return.
+*   `1`: **Add New Flight**: Prompts for a unique flight number to create a new flight.
+*   `2`: **Select Flight to Manage**: Lists available flights and lets you choose one to manage.
+*   `3`: **List All Flights**: Shows a summary of all flights and their occupancy.
+*   `0`: **Exit Program**: Closes the application.
 
-6.  **Process Full Flight Cancellation:**
-    *   Enter `6`.
-    *   **The passenger contact list will be printed.**
-    *   You'll be asked: `Do you want to clear all reservations for this flight now? [y/n]`
-    *   Enter `y` (yes) or `n` (no).
-    *   Press `Enter` to return.
+### Flight Management Menu
 
-0.  **Back to Main Menu:**
-    *   Enter `0` to return to the Main Menu.
+After selecting a flight, you can perform the following actions:
+
+*   `1`: **Display Seating Chart**: Shows the seating plan with available seats marked as `[#]` and reserved seats as `[X]`.
+*   `2`: **Book a Seat**: Allows you to book a seat by entering the seat number and customer details.
+*   `3`: **Cancel a Reservation**: Lets you cancel a reservation by providing either the seat number or the customer's name.
+*   `4`: **Print Passenger Manifest (by Seat)**: Lists all passengers on the flight, ordered by their seat number.
+*   `5`: **Print Passenger Manifest (by Name)**: Lists all passengers on the flight, ordered alphabetically by name.
+*   `6`: **Process Full Flight Cancellation**: Prints the passenger contact list and asks for confirmation before canceling the entire flight.
+*   `0`: **Back to Main Menu**: Returns to the main menu.
+
+## File Structure
+
+*   **`Main.cpp`**: The main entry point for the application. It handles the main menu and user input.
+*   **`Airline.h` / `Airline.cpp`**: Defines the `Airline` class, which manages all the flights in the system.
+*   **`Flight.h` / `Flight.cpp`**: Defines the `Flight` class, responsible for managing a single flight, including its seating chart and passenger list.
+*   **`Customer.h` / `Customer.cpp`**: Defines the `Customer` class, which holds information about a passenger.
+*   **`Person.h` / `Person.cpp`**: A base class for `Customer`.
+*   **`Seat.h` / `Seat.cpp`**: Defines the `Seat` class, representing a single seat on a flight.
+*   **`Constants.h`**: A header file containing constants that can be modified, such as `MAX_FLIGHTS` and `MAX_SEATS`.
